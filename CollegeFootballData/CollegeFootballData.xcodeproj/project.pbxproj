@@ -15,6 +15,7 @@
 		FE62934F26B08E25006C0ADC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE62934D26B08E25006C0ADC /* LaunchScreen.storyboard */; };
 		FE62935A26B08E26006C0ADC /* CollegeFootballDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62935926B08E26006C0ADC /* CollegeFootballDataTests.swift */; };
 		FE62936526B08E26006C0ADC /* CollegeFootballDataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62936426B08E26006C0ADC /* CollegeFootballDataUITests.swift */; };
+		FE62937826B09310006C0ADC /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE62937726B09310006C0ADC /* SearchResultController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FE62936026B08E26006C0ADC /* CollegeFootballDataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CollegeFootballDataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE62936426B08E26006C0ADC /* CollegeFootballDataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeFootballDataUITests.swift; sourceTree = "<group>"; };
 		FE62936626B08E26006C0ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE62937726B09310006C0ADC /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		FE62937326B08E4B006C0ADC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FE62937726B09310006C0ADC /* SearchResultController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE62937826B09310006C0ADC /* SearchResultController.swift in Sources */,
 				FE62934726B08E23006C0ADC /* ViewController.swift in Sources */,
 				FE62934326B08E23006C0ADC /* AppDelegate.swift in Sources */,
 				FE62934526B08E23006C0ADC /* SceneDelegate.swift in Sources */,
