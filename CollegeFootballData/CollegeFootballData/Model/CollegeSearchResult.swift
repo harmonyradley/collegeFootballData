@@ -10,12 +10,8 @@ import Foundation
 struct CollegeSearchResult: Codable {
     let searchTerm: String
     let name: String
-    let position: PlayerPosition
+    let position: String
     let team: String
-
-
 }
 
-struct PlayerPosition: Codable {
-    var positon: String
-}
+

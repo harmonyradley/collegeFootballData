@@ -14,7 +14,6 @@ class SearchResultController {
     }
 
     enum NetworkError: Error {
-        case noAuth
         case badURL
         case badData
         case noDecode
@@ -25,7 +24,6 @@ class SearchResultController {
     var collegePlayerSearchResults: [CollegeSearchResult] = []
 
     func performSearch(searchTerm: String, completion: @escaping (Result<CollegeSearchResult, NetworkError>) -> Void) {
-
 
         // create request
         var request = URLRequest(url: baseURL)
