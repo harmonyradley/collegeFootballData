@@ -20,6 +20,7 @@ class SearchResultController {
         case failedFetch
     }
 
+    private let apiKey = "D1nfhzmjTqtT1vaooDpFb4gVuL+VFh200eJxaAJnsLtrKefEO7tXAYT4wmtmIcRQ"
     private let baseURL = URL(string: "api.collegefootballdata.com/player/search")!
     var collegePlayerSearchResults: [CollegeSearchResult] = []
 
