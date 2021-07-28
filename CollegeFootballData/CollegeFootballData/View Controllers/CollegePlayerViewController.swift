@@ -36,7 +36,6 @@ extension CollegePlayerViewController: UITableViewDelegate, UITableViewDataSourc
         }
         return cell
     }
-
 }
 
 extension CollegePlayerViewController: UISearchBarDelegate {
@@ -44,7 +43,7 @@ extension CollegePlayerViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text else { return }
 
-        collegeSearchResultController.performSearch(searchTerm: searchTerm) { _ in
+        collegeSearchResultController.performSearch(with: searchTerm) { _ in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

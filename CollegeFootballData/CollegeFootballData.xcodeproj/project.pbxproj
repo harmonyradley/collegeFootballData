@@ -107,7 +107,6 @@
 			children = (
 				FE62937626B08E80006C0ADC /* App */,
 				FE62937226B08E44006C0ADC /* Model */,
-				FE62937B26B0A626006C0ADC /* Views */,
 				FE62937326B08E4B006C0ADC /* Controller */,
 				FE62937426B08E54006C0ADC /* View Controllers */,
 				FE62937526B08E5D006C0ADC /* Storyboards */,
@@ -154,6 +153,7 @@
 		FE62937426B08E54006C0ADC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FE62937B26B0A626006C0ADC /* Views */,
 				FE62934626B08E23006C0ADC /* CollegePlayerViewController.swift */,
 			);
 			path = "View Controllers";

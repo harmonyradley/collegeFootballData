@@ -9,10 +9,6 @@ import Foundation
 
 class SearchResultController {
 
-    enum HTTPMethod: String {
-        case get = "GET"
-    }
-
     enum NetworkError: Error {
         case badURL
         case badData
@@ -20,17 +16,25 @@ class SearchResultController {
         case failedFetch
     }
 
+    typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
+
     private let apiKey = "D1nfhzmjTqtT1vaooDpFb4gVuL+VFh200eJxaAJnsLtrKefEO7tXAYT4wmtmIcRQ"
-    private let baseURL = URL(string: "api.collegefootballdata.com/player/search")!
+    private let baseURL = URL(string: "https://api.collegefootballdata.com/player/search")!
+
     var collegePlayerSearchResults: [CollegeSearchResult] = []
 
-    func performSearch(searchTerm: String, completion: @escaping (Result<CollegeSearchResult, NetworkError>) -> Void) {
+    func performSearch(with searchTerm: String, completion: @escaping CompletionHandler) {
+        var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
+        let queryParamerters = ["query": searchTerm,
+                                "api_key": apiKey]
+        components?.queryItems = queryParamerters.map({ URLQueryItem(name: $0.key, value: $0.value)})
 
-        // create request
-        var request = URLRequest(url: baseURL)
-        request.httpMethod = HTTPMethod.get.rawValue
+        guard let requestURL = components?.url else {
+            completion(.failure(.badURL))
+            return
+        }
 
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: requestURL) { data, response, error in
             if let response = response as? HTTPURLResponse,
                response.statusCode != 200 {
                 completion(.failure(.failedFetch))
@@ -38,21 +42,24 @@ class SearchResultController {
             }
 
             if let error = error {
-                NSLog("Error getting request \(error)")
+                NSLog("Error searching for college player with search term \(searchTerm): \(error)")
                 completion(.failure(.failedFetch))
             }
-
+            
             guard let data = data else {
+                NSLog("No data returned from data task")
                 completion(.failure(.badData))
                 return
             }
 
             let decoder = JSONDecoder()
             do {
-                let collegeSearchResult = try decoder.decode(CollegeSearchResult.self, from: data)
+                let searchResults = try decoder.decode(PlayerSearchResult.self, from: data)
+                self.collegePlayerSearchResults = searchResults.searchTerm
                 DispatchQueue.main.async {
-                    completion(.success(collegeSearchResult))
+                    completion(.success(true))
                 }
+
             } catch {
                 print("Error decoding CollegeSearchResult objects: \(error)")
                 completion(.failure(.noDecode))
