@@ -153,8 +153,8 @@
 		FE62937426B08E54006C0ADC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FE62937B26B0A626006C0ADC /* Views */,
 				FE62934626B08E23006C0ADC /* CollegePlayerViewController.swift */,
+				FE62937B26B0A626006C0ADC /* Views */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

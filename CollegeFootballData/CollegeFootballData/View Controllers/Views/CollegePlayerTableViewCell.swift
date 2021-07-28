@@ -9,6 +9,8 @@ import UIKit
 
 class CollegePlayerTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = "SearchResultCell"
+
     var collegePlayer: CollegeSearchResult? {
         didSet {
             updateViews()
@@ -16,11 +18,12 @@ class CollegePlayerTableViewCell: UITableViewCell {
     }
 
     // MARK: - Outlets
-
     @IBOutlet var playerNameLabel: UILabel!
     @IBOutlet var playerPostionLabel: UILabel!
     @IBOutlet var playerTeamLabel: UILabel!
 
+    // MARK: - Methods
+    
     private func updateViews() {
         guard let collegePlayer = collegePlayer else { return }
 

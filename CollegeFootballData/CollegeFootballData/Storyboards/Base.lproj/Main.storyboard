@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--College Football Players-->
+        <!--College 🏈 Players-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CollegePlayerViewController" customModule="CollegeFootballData" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zwi-Mx-PEP" secondAttribute="trailing" id="sw0-UW-aoK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="College Football Players" id="J1T-Aa-pBI"/>
+                    <navigationItem key="navigationItem" title="College 🏈 Players" id="J1T-Aa-pBI"/>
                     <connections>
                         <outlet property="searchBar" destination="m3x-Zg-KMc" id="otb-B1-aiY"/>
                         <outlet property="tableView" destination="Zwi-Mx-PEP" id="rTb-U6-fQU"/>
@@ -106,7 +106,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Q3-WQ-gpY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.985507246376812" y="88.392857142857139"/>
+            <point key="canvasLocation" x="164" y="88"/>
         </scene>
     </scenes>
     <resources>

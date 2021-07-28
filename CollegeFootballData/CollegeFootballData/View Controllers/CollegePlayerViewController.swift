@@ -9,10 +9,15 @@ import UIKit
 
 class CollegePlayerViewController: UIViewController {
 
+    // MARK: - Properties
+    let collegeSearchResultController = SearchResultController()
+
+    // MARK: - Outlets
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
 
-    let collegeSearchResultController = SearchResultController()
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +36,8 @@ extension CollegePlayerViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as? CollegePlayerTableViewCell else {
-            return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollegePlayerTableViewCell.reuseIdentifier, for: indexPath) as? CollegePlayerTableViewCell else {
+            fatalError("Can't dequeue cell of type \(CollegePlayerTableViewCell.reuseIdentifier)")
         }
         return cell
     }

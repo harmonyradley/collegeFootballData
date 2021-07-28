@@ -8,8 +8,11 @@
 import Foundation
 
 struct CollegeSearchResult: Codable {
-    let searchTerm: String
     let definitions: [PlayerSearchResult]
+}
+
+struct SearchResults: Codable {
+    let searchTerm: [CollegeSearchResult]
 }
 
 struct PlayerSearchResult: Codable {

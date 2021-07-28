@@ -34,6 +34,8 @@ class SearchResultController {
             return
         }
 
+        // returns downloaded data directly to the app in memory
+        // GET request
         URLSession.shared.dataTask(with: requestURL) { data, response, error in
             if let response = response as? HTTPURLResponse,
                response.statusCode != 200 {
@@ -52,19 +54,20 @@ class SearchResultController {
                 return
             }
 
+            // Converting JSON data returned by an API into model objects
             let decoder = JSONDecoder()
             do {
-                let searchResults = try decoder.decode(CollegeSearchResult.self, from: data)
+                let searchResults = try decoder.decode(SearchResults.self, from: data)
                 self.collegePlayerSearchResults = searchResults.searchTerm
                 DispatchQueue.main.async {
                     completion(.success(true))
                 }
 
             } catch {
-                print("Error decoding CollegeSearchResult objects: \(error)")
+                NSLog("Error decoding CollegeSearchResult objects: \(error)")
                 completion(.failure(.noDecode))
                 return
             }
-        }.resume()
+        }.resume() // This is what starts the data task. Without it, the data task would never go to the API.
     }
 }
