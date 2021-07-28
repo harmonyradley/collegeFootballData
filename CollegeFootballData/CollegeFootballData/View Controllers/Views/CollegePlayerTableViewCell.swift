@@ -24,9 +24,16 @@ class CollegePlayerTableViewCell: UITableViewCell {
     private func updateViews() {
         guard let collegePlayer = collegePlayer else { return }
 
-        playerNameLabel.text = collegePlayer.name
-        playerPostionLabel.text = collegePlayer.position
-        playerTeamLabel.text = collegePlayer.team
+        for player in collegePlayer.definitions {
+            playerNameLabel.text = player.properties.name
+        }
 
+        for position in collegePlayer.definitions {
+            playerPostionLabel.text = position.properties.position
+        }
+
+        for team in collegePlayer.definitions {
+            playerTeamLabel.text = team.properties.team
+        }
     }
 }

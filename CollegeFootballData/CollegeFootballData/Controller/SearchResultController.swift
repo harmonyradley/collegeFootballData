@@ -54,7 +54,7 @@ class SearchResultController {
 
             let decoder = JSONDecoder()
             do {
-                let searchResults = try decoder.decode(PlayerSearchResult.self, from: data)
+                let searchResults = try decoder.decode(CollegeSearchResult.self, from: data)
                 self.collegePlayerSearchResults = searchResults.searchTerm
                 DispatchQueue.main.async {
                     completion(.success(true))

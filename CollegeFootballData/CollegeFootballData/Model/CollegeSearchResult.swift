@@ -8,11 +8,16 @@
 import Foundation
 
 struct CollegeSearchResult: Codable {
-    let name: String
-    let position: String
-    let team: String
+    let searchTerm: String
+    let definitions: [PlayerSearchResult]
 }
 
 struct PlayerSearchResult: Codable {
-    let searchTerm: [CollegeSearchResult]
+    let properties: Properties
+}
+
+struct Properties: Codable {
+    let name: String
+    let position: String
+    let team: String
 }
