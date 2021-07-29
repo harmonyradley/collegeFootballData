@@ -19,7 +19,7 @@ class SearchResultController {
     typealias CompletionHandler = (Result<Bool, NetworkError>) -> Void
 
     private let apiKey = "D1nfhzmjTqtT1vaooDpFb4gVuL+VFh200eJxaAJnsLtrKefEO7tXAYT4wmtmIcRQ"
-    private let baseURL = URL(string: "https://api.collegefootballdata.com/player/search")!
+    private let baseURL = URL(string: "https://api.collegefootballdata.com/player/search/")!
 
     var collegePlayerSearchResults: [CollegeSearchResult] = []
 
@@ -58,7 +58,7 @@ class SearchResultController {
             let decoder = JSONDecoder()
             do {
                 let searchResults = try decoder.decode(SearchResults.self, from: data)
-                self.collegePlayerSearchResults = searchResults.searchTerm
+                self.collegePlayerSearchResults = searchResults.search_term
                 DispatchQueue.main.async {
                     completion(.success(true))
                 }

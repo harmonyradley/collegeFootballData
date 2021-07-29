@@ -22,6 +22,7 @@ class CollegePlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
 

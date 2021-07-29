@@ -10,24 +10,25 @@ import XCTest
 
 class CollegeFootballDataTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let timeout: TimeInterval = 5
+
+    func testServerResponse() {
+        let url = URL(string: "https://api.collegefootballdata.com/player/search/D1nfhzmjTqtT1vaooDpFb4gVuL+VFh200eJxaAJnsLtrKefEO7tXAYT4wmtmIcRQ")!
+        let expectation = self.expectation(description: "Server responds in reasonable time")
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            defer { expectation.fulfill() }
+            XCTAssertNotNil(data)
+            XCTAssertNotNil(response)
+            XCTAssertNil(error)
+        }.resume()
+        wait(for: [expectation], timeout: timeout)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+//    func testFetchPerformSearch() throws {
+//        let expectation1 = self.expectation(description: "You can perform a Search!")
+//        try SearchResultController.performSearch(UISearchBar.searchterm)
+//        expectation1.fulfill()
+//        wait(for: [expectation1], timeout: timeout)
+//    }
 
 }

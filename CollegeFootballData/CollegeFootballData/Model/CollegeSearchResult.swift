@@ -11,8 +11,9 @@ struct CollegeSearchResult: Codable {
     let definitions: [PlayerSearchResult]
 }
 
+// Represents the full JSON 
 struct SearchResults: Codable {
-    let searchTerm: [CollegeSearchResult]
+    let search_term: [CollegeSearchResult]
 }
 
 struct PlayerSearchResult: Codable {
