@@ -1,1 +1,1 @@
-# collegeFootballData
+# CollegeFootballData
