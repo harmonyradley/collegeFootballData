@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zwi-Mx-PEP">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="m3x-Zg-KMc">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -74,7 +74,6 @@
                                             <outlet property="playerNameLabel" destination="1UL-6x-k5V" id="Sht-Lr-Ugp"/>
                                             <outlet property="playerPostionLabel" destination="viw-gE-wfz" id="L7F-IW-cAM"/>
                                             <outlet property="playerTeamLabel" destination="R9F-2Z-rWH" id="LSl-d5-1M6"/>
-                                            <segue destination="TsX-2u-lAV" kind="show" id="Lb5-1D-qwS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -89,7 +88,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zwi-Mx-PEP" secondAttribute="trailing" id="sw0-UW-aoK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="College 🏈 Players" id="J1T-Aa-pBI"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="College 🏈 Players" id="J1T-Aa-pBI">
+                        <barButtonItem key="leftBarButtonItem" title="Info" id="Hpq-Eh-ROu">
+                            <connections>
+                                <segue destination="A7h-qU-GI6" kind="show" id="iKM-sh-vq5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="m3x-Zg-KMc" id="otb-B1-aiY"/>
                         <outlet property="tableView" destination="Zwi-Mx-PEP" id="rTb-U6-fQU"/>
@@ -100,20 +107,55 @@
             <point key="canvasLocation" x="939.13043478260875" y="88.392857142857139"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="6LU-o5-1sz">
+        <scene sceneID="PyF-TR-Ryw">
             <objects>
-                <viewController id="TsX-2u-lAV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ram-ZR-vFe">
+                <viewController id="A7h-qU-GI6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="noG-z7-82x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="nXH-yt-XRV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome! 🏈" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSy-Sg-6yh">
+                                <rect key="frame" x="10" y="140" width="394" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uSn-XI-AI1">
+                                <rect key="frame" x="8" y="258" width="398" height="547"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How To Use:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zx-YL-s4g">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTj-I1-Lbr">
+                                        <rect key="frame" x="0.0" y="44" width="398" height="503"/>
+                                        <string key="text">Click on the search bar to search for your favorite College Football Players! You will be able to find out what position they play and the team that they are on!</string>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pNi-xL-Xx5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pNi-xL-Xx5" firstAttribute="bottom" secondItem="uSn-XI-AI1" secondAttribute="bottom" constant="8" id="52a-3u-mLm"/>
+                            <constraint firstItem="pNi-xL-Xx5" firstAttribute="trailing" secondItem="fSy-Sg-6yh" secondAttribute="trailing" constant="10" id="7g2-wR-VNI"/>
+                            <constraint firstItem="pNi-xL-Xx5" firstAttribute="trailing" secondItem="uSn-XI-AI1" secondAttribute="trailing" constant="8" id="ejg-Ui-Mas"/>
+                            <constraint firstItem="uSn-XI-AI1" firstAttribute="leading" secondItem="pNi-xL-Xx5" secondAttribute="leading" constant="8" id="ezT-7W-aw3"/>
+                            <constraint firstItem="uSn-XI-AI1" firstAttribute="top" secondItem="fSy-Sg-6yh" secondAttribute="bottom" constant="70" id="jck-hH-tH3"/>
+                            <constraint firstItem="fSy-Sg-6yh" firstAttribute="leading" secondItem="pNi-xL-Xx5" secondAttribute="leading" constant="10" id="lWU-qi-h8c"/>
+                            <constraint firstItem="pNi-xL-Xx5" firstAttribute="top" secondItem="fSy-Sg-6yh" secondAttribute="top" constant="8" id="oHl-tC-aia"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="g5T-pi-uS7"/>
+                    <navigationItem key="navigationItem" id="wq0-oG-KzG"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ea0-RM-M8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YfX-M3-m2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="88"/>
+            <point key="canvasLocation" x="1743" y="88"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IaX-7C-QLm">

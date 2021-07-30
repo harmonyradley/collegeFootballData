@@ -24,6 +24,7 @@ class SearchResultController {
     var collegePlayerSearchResults: [CollegeSearchResult] = []
 
     func performSearch(with searchTerm: String, completion: @escaping CompletionHandler) {
+        // making sure the url is formatted correctly 
         var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         let queryParamerters = ["query": searchTerm,
                                 "api_key": apiKey]
@@ -56,9 +57,10 @@ class SearchResultController {
 
             // Converting JSON data returned by an API into model objects
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             do {
                 let searchResults = try decoder.decode(SearchResults.self, from: data)
-                self.collegePlayerSearchResults = searchResults.search_term
+                self.collegePlayerSearchResults = searchResults.searchTerm
                 DispatchQueue.main.async {
                     completion(.success(true))
                 }

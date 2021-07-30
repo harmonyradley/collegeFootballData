@@ -7,16 +7,21 @@
 
 import Foundation
 
+// Represents the full JSON
+struct SearchResults: Codable {
+    let searchTerm: [CollegeSearchResult]
+}
+
 struct CollegeSearchResult: Codable {
     let definitions: [PlayerSearchResult]
 }
 
-// Represents the full JSON 
-struct SearchResults: Codable {
-    let search_term: [CollegeSearchResult]
+struct PlayerSearchResult: Codable {
+    // This is snake cased in the JSON, so I have to figure out how to conform to that in swift so that it will recognize this. 
+    let playersearchresult: Property
 }
 
-struct PlayerSearchResult: Codable {
+struct Property: Codable {
     let properties: Properties
 }
 
